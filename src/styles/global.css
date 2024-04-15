@@ -74,7 +74,7 @@ header {
   border-bottom: 1px solid #dfdfdf;
 }
 
-.with-header {
+.withHeader {
   margin-top: var(--header-height);
 }
 
