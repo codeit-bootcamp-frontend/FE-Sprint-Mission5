@@ -1,7 +1,12 @@
 import React from "react";
 import Logo from "../../assets/images/logo/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
+
+// react-router-dom의 NavLink를 이용하면 활성화된 네비게이션 항목을 하이라이트해줄 수 있어요!
+function getLinkStyle({ isActive }) {
+  return { color: isActive ? "var(--blue)" : undefined };
+}
 
 function Header() {
   return (
@@ -14,10 +19,14 @@ function Header() {
         <nav>
           <ul>
             <li>
-              <Link to="/community">자유게시판</Link>
+              <NavLink to="/community" style={getLinkStyle}>
+                자유게시판
+              </NavLink>
             </li>
             <li>
-              <Link to="/items">중고마켓</Link>
+              <NavLink to="/items" style={getLinkStyle}>
+                중고마켓
+              </NavLink>
             </li>
           </ul>
         </nav>
