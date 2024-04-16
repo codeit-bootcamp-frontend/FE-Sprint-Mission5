@@ -73,6 +73,7 @@ header {
   padding: 0 16px;
   background-color: #ffffff;
   border-bottom: 1px solid #dfdfdf;
+  z-index: 999;
 }
 
 .withHeader {
