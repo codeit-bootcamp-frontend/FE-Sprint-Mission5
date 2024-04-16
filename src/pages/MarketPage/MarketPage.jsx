@@ -1,7 +1,15 @@
 import React from "react";
+import BestItemsSection from "./components/BestItemsSection";
+import AllItemsSection from "./components/AllItemsSection";
+import "./MarketPage.css";
 
-function ItemsPage() {
-  return <div>ItemsPage</div>;
+function MarketPage() {
+  return (
+    <div className="wrapper">
+      <BestItemsSection />
+      <AllItemsSection />
+    </div>
+  );
 }
 
-export default ItemsPage;
+export default MarketPage;
