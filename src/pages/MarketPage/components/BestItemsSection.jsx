@@ -20,6 +20,11 @@ function BestItemsSection() {
   const [itemList, setItemList] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
 
+  const fetchSortedData = async ({ orderBy, pageSize }) => {
+    const products = await getProducts({ orderBy, pageSize });
+    setItemList(products.list);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setPageSize(getPageSize());
@@ -27,7 +32,7 @@ function BestItemsSection() {
 
     // 화면 크기 변경할 때마다 pageSize를 다시 계산해 넣음
     window.addEventListener("resize", handleResize);
-    getProducts({ orderBy: "favorite", pageSize }).then(setItemList);
+    fetchSortedData({ orderBy: "favorite", pageSize });
 
     // Cleanup function
     return () => {

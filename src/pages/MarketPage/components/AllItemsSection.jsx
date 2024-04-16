@@ -5,6 +5,7 @@ import { ReactComponent as SortIcon } from "../../../assets/images/icons/ic_sort
 import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
 import { Link } from "react-router-dom";
 import DropDownMenu from "../../../components/UI/DropdownMenu";
+import PaginationBar from "../../../components/UI/PaginationBar";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -26,10 +27,12 @@ function AllItemsSection() {
   const [pageSize, setPageSize] = useState(getPageSize());
   const [itemList, setItemList] = useState([]);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [totalPageNum, setTotalPageNum] = useState();
 
   const fetchSortedData = async ({ orderBy, page, pageSize }) => {
     const products = await getProducts({ orderBy, page, pageSize });
-    setItemList(products);
+    setItemList(products.list);
+    setTotalPageNum(Math.ceil(products.totalCount / pageSize));
   };
 
   const handleSortSelection = (sortOption) => {
@@ -54,6 +57,10 @@ function AllItemsSection() {
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
+  };
+
+  const onPageChange = (pageNumber) => {
+    setPage(pageNumber);
   };
 
   return (
@@ -90,6 +97,14 @@ function AllItemsSection() {
         {itemList?.map((item) => (
           <ItemCard item={item} key={`market-item-${item.id}`} />
         ))}
+      </div>
+
+      <div className="paginationBarWrapper">
+        <PaginationBar
+          totalPageNum={totalPageNum}
+          activePageNum={page}
+          onPageChange={onPageChange}
+        />
       </div>
     </div>
   );
