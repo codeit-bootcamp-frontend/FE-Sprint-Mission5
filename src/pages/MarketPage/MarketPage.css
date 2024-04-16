@@ -31,6 +31,10 @@
 .itemName {
   font-size: 16px;
   font-weight: 400;
+  /* 모든 상품 카드가 동일한 크기일 수 있도록 상품명을 한 줄로 제한 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .itemPrice {
