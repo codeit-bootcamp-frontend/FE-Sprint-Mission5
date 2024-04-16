@@ -4,7 +4,7 @@ import ItemCard from "./ItemCard";
 import { ReactComponent as SortIcon } from "../../../assets/images/icons/ic_sort.svg";
 import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
 import { Link } from "react-router-dom";
-import DropDownMenu from "../../../components/UI/DropDownMenu";
+import DropDownMenu from "../../../components/UI/DropdownMenu";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -30,6 +30,11 @@ function AllItemsSection() {
   const fetchSortedData = async ({ orderBy, page, pageSize }) => {
     const products = await getProducts({ orderBy, page, pageSize });
     setItemList(products);
+  };
+
+  const handleSortSelection = (sortOption) => {
+    setOrderBy(sortOption);
+    setIsDropdownVisible(false);
   };
 
   useEffect(() => {
@@ -68,10 +73,17 @@ function AllItemsSection() {
             placeholder="검색할 상품을 입력해 주세요"
           />
         </div>
-        <button className="sortDropDownTriggerButton" onClick={toggleDropdown}>
-          <SortIcon />
-        </button>
-        {isDropdownVisible && <DropDownMenu />}
+        <div className="sortButtonWrapper">
+          <button
+            className="sortDropDownTriggerButton"
+            onClick={toggleDropdown}
+          >
+            <SortIcon />
+          </button>
+          {isDropdownVisible && (
+            <DropDownMenu onSortSelection={handleSortSelection} />
+          )}
+        </div>
       </div>
 
       <div className="allItemsCardSection">

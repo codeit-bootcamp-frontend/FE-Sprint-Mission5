@@ -71,6 +71,10 @@
   padding-bottom: 16px;
 }
 
+.sortButtonWrapper {
+  position: relative;
+}
+
 .sortDropDownTriggerButton {
   border: 1px solid #e5e7eb;
   border-radius: 12px;
