@@ -2,6 +2,7 @@
   color: #111827;
   font-weight: bold;
   font-size: 20px;
+  line-height: normal;
 }
 
 .itemCard {
@@ -46,13 +47,60 @@
 }
 
 .bestItemsContainer {
-  margin-bottom: 24px;
+  padding-top: 17px;
+  padding-bottom: 24px;
 }
 
 .allItemsCardSection {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px 8px;
+}
+
+.allItemsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.allItemsSectionHeader:first-child {
+  padding-bottom: 8px;
+}
+
+.allItemsSectionHeader:nth-child(2) {
+  padding-bottom: 16px;
+}
+
+.sortDropDownTriggerButton {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 9px;
+  margin-left: 8px;
+}
+
+.searchBarWrapper {
+  display: flex;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 9px 16px;
+  flex: 1;
+  align-items: center;
+}
+
+.searchBarInput {
+  border: none;
+  flex: 1;
+  background-color: inherit;
+  margin-left: 4px;
+}
+
+.searchBarInput::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.searchBarInput:focus {
+  outline: none;
 }
 
 @media (min-width: 768px) {
