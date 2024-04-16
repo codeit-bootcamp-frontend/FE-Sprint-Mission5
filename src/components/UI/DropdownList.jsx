@@ -1,9 +1,9 @@
 import React from "react";
-import "./DropdownMenu.css";
+import "./DropdownList.css";
 
-function DropdownMenu({ onSortSelection }) {
+function DropdownList({ onSortSelection }) {
   return (
-    <div className="dropdownMenu">
+    <div className="dropdownList">
       <div className="dropdownItem" onClick={() => onSortSelection("recent")}>
         최신순
       </div>
@@ -13,4 +13,4 @@ function DropdownMenu({ onSortSelection }) {
     </div>
   );
 }
-export default DropdownMenu;
+export default DropdownList;

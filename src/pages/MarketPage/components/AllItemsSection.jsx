@@ -4,7 +4,7 @@ import ItemCard from "./ItemCard";
 import { ReactComponent as SortIcon } from "../../../assets/images/icons/ic_sort.svg";
 import { ReactComponent as SearchIcon } from "../../../assets/images/icons/ic_search.svg";
 import { Link } from "react-router-dom";
-import DropdownMenu from "../../../components/UI/DropdownMenu";
+import DropdownList from "../../../components/UI/DropdownList";
 import PaginationBar from "../../../components/UI/PaginationBar";
 
 const getPageSize = () => {
@@ -88,7 +88,7 @@ function AllItemsSection() {
             <SortIcon />
           </button>
           {isDropdownVisible && (
-            <DropdownMenu onSortSelection={handleSortSelection} />
+            <DropdownList onSortSelection={handleSortSelection} />
           )}
         </div>
       </div>
