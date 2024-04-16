@@ -46,7 +46,7 @@ function BestItemsSection() {
 
       <div className="bestItemsCardSection">
         {itemList?.map((item) => (
-          <ItemCard item={item} />
+          <ItemCard item={item} key={`best-item-${item.id}`} />
         ))}
       </div>
     </div>
